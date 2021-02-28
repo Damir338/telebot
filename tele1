@@ -1,0 +1,2074 @@
+import random 
+
+import telebot 
+
+
+
+bot = telebot.TeleBot('1624666143:AAF87yylBAFxSDA7rbEdc2s7vnajfsNwEO4')
+
+
+
+from telebot import types
+
+
+
+ 
+
+# Вопросы
+
+
+
+#IT1 = ["И так певый вопрос!\nВ каком году вышел первый язык програмирования?"]
+
+
+
+
+
+# Метод, который получает сообщения и обрабатывает их
+
+
+
+@bot.message_handler(content_types=['text'])
+
+
+
+def get_text_messages(message):
+
+    
+
+
+
+    if message.text == "Привет" or message.text == "/start" or message.text == "/начать":
+
+
+
+        # Готовим кнопки
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+
+
+        key_1 = types.InlineKeyboardButton(text='Будущие первоклассники', callback_data='choice1')
+
+
+
+        keyboard.add(key_1)
+
+
+
+        key_2 = types.InlineKeyboardButton(text='Дополнительное образование', callback_data='choice2')
+
+
+
+        keyboard.add(key_2)
+
+
+
+        key_3 = types.InlineKeyboardButton(text='Дошкольные группы', callback_data='choice3')
+
+
+
+        keyboard.add(key_3)
+
+
+
+        key_4 = types.InlineKeyboardButton(text='Зачисление ребенка', callback_data='choice4')
+
+
+
+        keyboard.add(key_4)
+
+
+
+        key_5 = types.InlineKeyboardButton(text='Направления обучения', callback_data='choice5')
+
+
+
+        keyboard.add(key_5)
+
+
+
+        key_6 = types.InlineKeyboardButton(text='Новостройки', callback_data='choice6')
+
+
+
+        keyboard.add(key_6)
+
+
+
+        key_7 = types.InlineKeyboardButton(text='Организация безопасности', callback_data='choice7')
+
+
+
+        keyboard.add(key_7)
+
+
+
+        key_8 = types.InlineKeyboardButton(text='Организация обучения', callback_data='choice8')
+
+
+
+        keyboard.add(key_8)
+
+
+
+        key_9 = types.InlineKeyboardButton(text='Питание', callback_data='choice9')
+
+
+
+        keyboard.add(key_9)
+
+
+
+        key_10 = types.InlineKeyboardButton(text='ЭЖД', callback_data='choice10')
+
+
+
+        keyboard.add(key_10)                               
+
+
+
+        # Показываем все кнопки сразу и пишем сообщение о выборе
+
+
+
+        bot.send_message(message.from_user.id, text='Выбирите тему вопроса:', reply_markup=keyboard)
+
+
+
+    elif message.text == "/help":
+
+
+
+        bot.send_message(message.from_user.id, "Напишите Привет или /start")
+
+
+
+    else:
+
+
+
+        bot.send_message(message.from_user.id, "Я вас не понимаю. Напишите /help.")
+
+
+
+ 
+
+# Обработчик нажатий на кнопки
+
+
+
+@bot.callback_query_handler(func=lambda call: True)
+
+
+
+def callback_worker(call):
+
+
+
+    if call.data == "choice1":  #1class
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_1Cc = types.InlineKeyboardButton(text='Нужно ли ребёнку при поступлении в первый класс проходить педагогическую диагностику, если он идёт в обычный класс «Школа России»?', callback_data='1c1')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Сколько лет и месяцев должно быть ребенку 1 сентября, чтобы его зачислили в первый класс?', callback_data='1c2')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='По какой программе ведется обучение в начальной школе?', callback_data='1c3')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Какие документы о будущем первокласснике необходимо предоставить школе и в какие сроки?', callback_data='1c4')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Где можно найти информацию об учителях?', callback_data='1c5')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Когда проводится педагогическая диагностика в 1 классах по программе «Эффективная школа»?', callback_data='1c6')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Как в начальной школе реализуется обучение по направлениям (математическое, филологическое)? ', callback_data='1c7')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Когда проходят организационные встречи с родителями будущих первоклассников?', callback_data='1c8')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Какие школьные принадлежности необходимо приобрести для первоклассника?', callback_data='1c9')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Как комплектуются классы?', callback_data='1c10')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Чем занимаются учащиеся 1 классов на продленке?', callback_data='1c11')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Задают ли школьникам домашнее задание в 1 классе? ', callback_data='1c12')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Планируется ли билингвальный класс (русский, английский языки) в учебном году 2021/2022?  ', callback_data='1c13')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Ребенок учится в 1 классе по программе «Эффективная начальная школа». В январе он будет уже во 2 классе. Как он будет посещать объединения дополнительного образования? С параллелью 1 или 2 класса?   ', callback_data='1c14')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Какие образовательные программы можно выбрать для первоклассников в учебном году 2021/2022?  ', callback_data='1c15')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Когда будут дни открытых дверей для будущих первоклассников?  ', callback_data='1c16')
+
+        keyboard.add(key_1Cc)
+
+        key_1Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_1Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)      
+
+
+
+    if call.data == "choice2":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_2Cc = types.InlineKeyboardButton(text='Принимает ли школа от родителей рекомендации по открытию объединений дополнительного образования?', callback_data='2c1')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Как производится перерасчет родительской платы в случае непосещения дошкольных групп?', callback_data='1c2')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='До скольки работает группа по присмотру и уходу?', callback_data='2c3')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Есть ли в школе бассейн?', callback_data='2c4')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Есть ли в школе бесплатные объединения дополнительного образования? ', callback_data='2c5')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Где взять договор на услуги дополнительного образования? ', callback_data='2c6')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='С какого возраста можно записать ребенка в объединение дополнительного образования? ', callback_data='2c7')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Где можно посмотреть расписание объединений дополнительного образования?', callback_data='2c8')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Как происходит оплата занятий объединения дополнительного образования?', callback_data='2c9')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Как заключить договор на посещение занятий объединения дополнительного образования? ', callback_data='2c10')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Планирует ли школа открыть запись в группу продлённого дня для учащихся начальной школы? ', callback_data='2c11')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Почему некоторые объединения дополнительного образования работают давно, а некоторые открываются не сразу?', callback_data='2c12')
+
+        keyboard.add(key_2Cc)
+
+        key_2Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_2Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+
+
+    if call.data == "choice3":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_3Cc = types.InlineKeyboardButton(text='Как распределяется очередь по дошкольным группам?', callback_data='3c1')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Есть ли в дошкольных группах ГКП? ', callback_data='3c2')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Есть ли в дошкольных группах логопед?', callback_data='3c3')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Очередь в дошкольные группы подошла, но 1 сентября ребенку еще не исполнится 3 лет. Он попадет в дошкольные группы? ', callback_data='3c4')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Есть ли донабор в дошкольные группы в течение учебного года?', callback_data='3c5')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Ребенок не попал в дошкольные группы. Куда можно обратиться для выяснения вопроса? ', callback_data='3c6')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Ребенок получил место в дошкольных группах школы №338. Как узнать, на какую образовательную площадку его распределили? ', callback_data='3c7')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Могут ли принять дошкольника в группу подготовки к школе в середине учебного года?', callback_data='3c8')
+
+        keyboard.add(key_3Cc)
+
+        key_3Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_3Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)               
+
+
+
+    if call.data == "choice4":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_4Cc = types.InlineKeyboardButton(text='Ребенок прописан в Москве, но не в районе местонахождения школы, посещает дошкольные группы комплекса №338. Будет ли он в первой очереди поступления в школу? ', callback_data='4c1')
+
+        keyboard.add(key_4Cc)
+
+        key_4Cc = types.InlineKeyboardButton(text='Как перевести ребенка в школу №338 из школы в Московской области?', callback_data='4c2')
+
+        keyboard.add(key_4Cc)
+
+        key_4Cc = types.InlineKeyboardButton(text='Ребенок прописан и учится в Москве. Когда можно подавать заявление на перевод в школу №338?', callback_data='4c3')
+
+        keyboard.add(key_4Cc)
+
+        key_4Cc = types.InlineKeyboardButton(text='Как перевести ребенка из школы №2070 в школу №338?', callback_data='4c4')
+
+        keyboard.add(key_4Cc)
+
+        key_4Cc = types.InlineKeyboardButton(text='Можно ли перевести ребенка в школу №338 в течение учебного года?', callback_data='4c5')
+
+        keyboard.add(key_4Cc)
+
+        key_4Cc = types.InlineKeyboardButton(text='Можно ли оформить ребенка в школу №338, если нет прописки в Москве?', callback_data='4c6')
+
+        keyboard.add(key_4Cc)
+
+        key_4Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_4Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)       
+
+
+
+    if call.data == "choice5":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_5Cc = types.InlineKeyboardButton(text='Что дает обучение в кадетском классе?', callback_data='5c1')
+
+        keyboard.add(key_5Cc)
+
+        key_5Cc = types.InlineKeyboardButton(text='Есть ли с 5 класса распределение по профильным классам?', callback_data='5c2')
+
+        keyboard.add(key_5Cc)
+
+        key_5Cc = types.InlineKeyboardButton(text='Какие профильные классы есть в школе для учащихся 10-11 классов?', callback_data='5c3')
+
+        keyboard.add(key_5Cc)
+
+        key_5Cc = types.InlineKeyboardButton(text='Есть ли в школе гимназический класс, куда распределяют детей по конкурсу?', callback_data='5c4')
+
+        keyboard.add(key_5Cc)
+
+        key_5Cc = types.InlineKeyboardButton(text='Обучение в рамках проекта «Математическая вертикаль» предусмотрено на всех школьных образовательных площадках?', callback_data='5c5')
+
+        keyboard.add(key_5Cc)
+
+        key_5Cc = types.InlineKeyboardButton(text='Сколько баллов необходимо для поступления в 7 класс по проекту «Математическая вертикаль»?', callback_data='5c6')
+
+        keyboard.add(key_5Cc)
+
+        key_5Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_5Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)       
+
+
+
+    if call.data == "choice6":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_6Cc = types.InlineKeyboardButton(text='Когда откроется школа на Лазурной?', callback_data='6c1')
+
+        keyboard.add(key_6Cc)
+
+        key_6Cc = types.InlineKeyboardButton(text='Ходит ли школьный автобус из ЖК «Белые ночи» до ОП «Школа Бунинские луга»?', callback_data='6c2')
+
+        keyboard.add(key_6Cc)
+
+        key_6Cc = types.InlineKeyboardButton(text='Ходит ли школьный автобус из ЖК «Москвичка» до ОП «Школа Бунинские луга»?', callback_data='6c3')
+
+        keyboard.add(key_6Cc)
+
+        key_6Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_6Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)       
+
+
+
+    if call.data == "choice7":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_7Cc = types.InlineKeyboardButton(text='Какими средствами в школе проводится санитарная обработка? ', callback_data='7c1')
+
+        keyboard.add(key_Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Где можно ознакомиться с сертификатами на приборы для измерения температуры, которые используют охранники на входе в школу? ', callback_data='7c2')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Какая есть информация о вакцинации учителей и учеников?', callback_data='7c3')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Кто в школе принимает решения по вопросу парковки возле школы?', callback_data='7c4')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Будет ли в ОП «Школа Бунинские луга» проход по карте «Москвёнок»?', callback_data='7c5')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Где можно узнать подробнее об алгоритмах эвакуации детей из школы?', callback_data='7c6')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='В следующем году хотим отдать ребенка в 1 класс вашей школы, но мы из другого города. Нужно ли пройти медкомиссию в Москве или имеющаяся медкомиссия будет действительна?', callback_data='7c7')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Когда будет больше парковочных мест для велосипедов и самокатов?', callback_data='7c8')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='В какое время открыта территория ОП «Школа Бунинские луга»?', callback_data='7c9')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Есть ли на образовательных площадках видеонаблюдение?', callback_data='7c10')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Можно ли учащимся школы во внеурочное время играть на школьном футбольном поле? Есть ли правила посещения поля? ', callback_data='7c11')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Предусмотрены ли в школе аппараты по обеззараживанию воздуха в кабинетах и на этажах?', callback_data='7c12')
+
+        keyboard.add(key_7Cc)
+
+        key_7Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_7Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)       
+
+
+
+    if call.data == "choice8":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_8Cc = types.InlineKeyboardButton(text='Сколько дошкольных групп входит в комплекс №338?', callback_data='8c1')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Какой график обучения в школе: триместры или четверти?', callback_data='8c2')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Как часто проверяют тетради по русскому языку в 5 классе?', callback_data='8c3')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Есть ли в школе китайский язык.', callback_data='8c4')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Участие в олимпиадах — это по желанию ученика или учителя? Может ли ученик отказаться от участия в олимпиадах? ', callback_data='8c5')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Организуют ли педагоги уроки, совмещенные с экскурсиями?', callback_data='8c6')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Есть ли в школе №338 Жоховский класс? ', callback_data='8c7')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Как узанать информацию об учителях начальной школы?', callback_data='8c8')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Где можно оперативно узнавать о новостях школы?Где можно оперативно узнавать о новостях школы?', callback_data='8c9')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Можно ли вместо бумажных учебников использовать электронные версии? ', callback_data='8c10')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Есть ли в школе классы с углубленным изучением английского языка?', callback_data='8c11')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Какое место занимает школа в рейтинге московских школ?', callback_data='8c12')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Как в школе работают с билингвальными детьми?', callback_data='8c13')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Можно ли жителям ЖК «Бунинские луга» заниматься спортом на школьном стадионе?', callback_data='8c14')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Есть ли в школе лингвистический класс?', callback_data='8c15')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Как превести ребенка из ОП «Воскресенская школа» в ОП «Школа Бунинские луга» (и наоборот)?', callback_data='8c16')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Какие в школе используются доски?', callback_data='8c17')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Как перевести ребенка в параллельный класс? ', callback_data='8c18')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Возможны ли в школе занятия с логопедом и психологом?', callback_data='8c19')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Есть ли в школе образовательные возможности для детей с особенностями развития? ', callback_data='8c20')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Проводят ли в школе профилактические мероприятия против буллинга? ', callback_data='8c21')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='С кем можно пообщаться по вопросу более добросовестного присмотра педагога за детьми? ', callback_data='8c22')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Что такое внеурочная деятельность? На что направлены занятия и кто их проводит?', callback_data='8c23')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Сколько у ребенка должно быть отметок для аттестации?', callback_data='8c24')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Проводятся ли в школе профилактические мероприятия?', callback_data='8c25')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Делают ли учащиеся 1 классов домашнее задание на продленке?', callback_data='8c26')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Как можно связаться, встретиться, с учителями-предметниками, если возникают какие-то вопросы?', callback_data='8c27')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Какие занятия в рамках внеурочной деятельности есть для начальной школы?', callback_data='8c28')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Имеет ли право учитель проверять тетради на уроке, пока школьники выполняют самостоятельное задание?', callback_data='8c29')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='С какого класса начинается изучение второго иностранного языка? Какой будет второй язык? ', callback_data='8c30')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Что делать, если учитель дал ребенку на самостоятельной работе задания, включающие не изученный на уроке материал? ', callback_data='8c31')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Есть ли требования к внешнему виду учащегося 1 класса?', callback_data='8c32')
+
+        keyboard.add(key_8Cc)
+
+        key_8Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_8Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)       
+
+
+
+    if call.data == "choice9":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_9Cc = types.InlineKeyboardButton(text='Есть ли в школе буфет, где ребенок может купить еду самостоятельно?', callback_data='9c1')
+
+        keyboard.add(key_9Cc)
+
+        key_9Cc = types.InlineKeyboardButton(text='Есть ли в школе платное питание?', callback_data='9c2')
+
+        keyboard.add(key_9Cc)
+
+        key_9Cc = types.InlineKeyboardButton(text='Почему уведомлять о том, что ребёнку не нужно питание, необходимо за 2 дня?', callback_data='9c3')
+
+        keyboard.add(key_9Cc)
+
+        key_9Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_9Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)       
+
+
+
+    if call.data == "choice10":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        key_10Cc = types.InlineKeyboardButton(text='Где получить доступ к электронному журналу-дневнику?', callback_data='10c1')
+
+        keyboard.add(key_10Cc)
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+
+
+        msg = ('На какой вопрос вы бы хотели получить ответ?:')
+
+
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)  
+
+
+
+    if call.data == "back":
+
+
+
+        keyboard = types.InlineKeyboardMarkup()
+
+
+
+        key_1 = types.InlineKeyboardButton(text='Будущие первоклассники', callback_data='choice1')
+
+
+
+        keyboard.add(key_1)
+
+
+
+        key_2 = types.InlineKeyboardButton(text='Дополнительное образование', callback_data='choice2')
+
+
+
+        keyboard.add(key_2)
+
+
+
+        key_3 = types.InlineKeyboardButton(text='Дошкольные группы', callback_data='choice3')
+
+
+
+        keyboard.add(key_3)
+
+
+
+        key_4 = types.InlineKeyboardButton(text='Зачисление ребенка', callback_data='choice4')
+
+
+
+        keyboard.add(key_4)
+
+
+
+        key_5 = types.InlineKeyboardButton(text='Направления обучения', callback_data='choice5')
+
+
+
+        keyboard.add(key_5)
+
+
+
+        key_6 = types.InlineKeyboardButton(text='Новостройки', callback_data='choice6')
+
+
+
+        keyboard.add(key_6)
+
+
+
+        key_7 = types.InlineKeyboardButton(text='Организация безопасности', callback_data='choice7')
+
+
+
+        keyboard.add(key_7)
+
+
+
+        key_8 = types.InlineKeyboardButton(text='Организация обучения', callback_data='choice8')
+
+
+
+        keyboard.add(key_8)
+
+
+
+        key_9 = types.InlineKeyboardButton(text='Питание', callback_data='choice9')
+
+
+
+        keyboard.add(key_9)
+
+
+
+        key_10 = types.InlineKeyboardButton(text='ЭЖД', callback_data='choice10')
+
+
+
+        keyboard.add(key_10)
+
+
+
+                       
+
+
+
+        # Показываем все кнопки сразу и пишем сообщение о выборе
+
+        bot.send_message(call.message.chat.id, text='Выбирите тему вопроса:', reply_markup=keyboard)
+
+
+
+    if call.data == "1c1":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Нет, педагогическую диагностику проходить не нужно.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('6 лет и 6 месяцев.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Основная программа обучения — «Школа России». При желании родителей для ребёнка может быть разработан индивидуальный план обучения.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c4":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('В срок до 31 августа на образовательную площадку по месту зачисления необходимо предоставить медицинскую карту ребенка по форме 026/у-2000 и прививочную карту по форме 063/у.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Информация о педагогическом составе размещена на сайте школы. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Для участия в педагогической диагностике необходимо написать соответствующее заявление (инструкция опубликована на сайте школы). Дата диагностики будет в ответном письме.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c7":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В начальной школе обучение по направлениям (филологическое, математическое) реализуется через внеурочную деятельность. Внеурочная деятельность модульная: дети могут попробовать себя во всех направлениях.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c8":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('В августе.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c9":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Специальных, специфических принадлежностей к школе приобретать не нужно. Полную информацию можно получить у классного руководителя во время организационной встречи в августе.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c10":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Класс комплектуется в среднем по 30 человек. Количество классов в параллели зависит от общего набора детей.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c11":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Педагоги организуют для детей разнообразную образовательно-воспитательную деятельность: игры, викторины, посещение библиотеки, пожвижные игры, самоподготовку, прогулку, развивающие занятия: лепку, рисование, конструирование, настольные игры, занятия по интересам.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c12":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Домашнего задания в 1 классе нет. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c13":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Открытия билингвального класса в планах нет. В школе №338 можно узучать английский язык в урочном формате (2 часа в неделю), а также посещать занятия внебюджетного объединения дополнительного образования «Кембриджский английский язык» (2 часа в неделю). ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c14":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Если ограничения в связи с коронавирусом сняты не будут, то с параллелью 1 класса. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c15":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('УМК «Школа России», «Эффективная начальная школа», УМК «Школа России» с использованием методической системы «УниК» В.И. Жохова. Подробная информация о поступлении в 1 классы — на сайте школы, в разделе «Условия приема и перевода». ')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "1c16":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Как только будут сняты все ограничения в связи с коронавирусом.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, школа принимает рекомендации. Все пожелания можно направить сотруднику, ответственному за дополнительное образование, Ольге Анатольевне Макаровой (makarovaoa@sch338.ru).')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Перерасчет родительской платы производится в случае отсутствия ребенка в учреждении по уважительной причине: а) за время болезни ребенка – на основании справки о заболевании с указанием диагноза и периода освобождения от посещения учреждения; б) за период карантина, установленного в учреждении органами Роспотребнадзора; в) за период санаторно-курортного лечения ребенка – на основании путевки и письменного заявления родителя; г) за период отпуска, командировки, болезни родителя – на основании подтверждающих документов и письменного заявления родителя; д) за летний отпускной период с 01 июня по 31 августа – на основании письменного заявления родителя; е) в случае отсутствия ребенка в учреждении 63 рабочих дня и более – на основании заведомо поданного письменного заявления родителя.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('До 20:00. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c4":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Бассейна в школе нет.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Есть. Перечень объединений дополнительного образования школы №338 опубликован на портале mos.ru.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Договор на услуги дополнительного образования размещен на сайте в разделе «Дополнительное образование». ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c7":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Технически ребенка возможно записать в кружок, когда ему исполнится 5 лет.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c8":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Расписание занятий объединений дополнительного образования опубликовано на сайте в разделе «Дополнительное образование».')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c9":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В личном кабинете на портале mos.ru в разделе «Мои платежи» до 10 числа каждого месяца будут появляться квитанции. Оплатить квитанцию необходимо до 15 числа. В случае возникновения вопросов можно связаться с сотрудником школы, ответственным за дополнительное образование. Контакты — в разделе «Дополнительное образование» на сайте школы.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c10":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Договор можно заключить только после подачи заявления через портал mos.ru. График заключения договоров опубликован на сайте школы в разделе «Дополнительное образование».')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c11":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('На сегодняшний день группы по присмотру и уходу сформированы. Если школа откроет новые группы по присмотру и уходу, мы обязательно сообщим об этом на сайте школы и в социальных сетях. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "2c12":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В настоящий момент занятия объединений дополнительного образования проходят по параллелям. Как только в объединении набирается группа из 10 школьников, которые учатся в одной параллели, занятия сразу начинаются. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Школа не принимает участие в формировании очереди в дошкольные группы. По данному вопросу следует обратиться в центр информирования населения по номеру телефона 8 (495) 530-71-71.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, группы кратковременного пребывания работают на всех дошкольных образовательных площадках. Чтобы попасть в ГКП, необходимо заполнить заявление на mos.ru. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c3":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Да, логопед есть на всех дошкольных образовательных площадках.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c4":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Механизмом, обеспечивающим направление детей дошкольного возраста в образовательные организации, является комплексная система оказания государственных услуг в сфере образования в электронном виде. Направление электронного заявления при комплектовании осуществляется на номер образовательной организации.Получить консультацию по вопросам комплектования дошкольных групп образовательных организаций можно в Центре информирования населения о предоставлении образовательных услуг Департамента образования города Москвы по электронной почте infodo@edu.mos.ru и по телефону 8 (495) 530-71-71 (понедельник — пятница с 9:00 до 19:00).')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, прием в течение учебного года осуществляется.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Механизмом, обеспечивающим направление детей дошкольного возраста в образовательные организации, является комплексная система оказания государственных услуг в сфере образования в электронном виде. Направление электронного заявления при комплектовании осуществляется на номер образовательной организации.Получить консультацию по вопросам комплектования дошкольных групп образовательных организаций можно в Центре информирования населения о предоставлении образовательных услуг Департамента образования города Москвы по электронной почте infodo@edu.mos.ru и по телефону 8 (495) 530-71-71 (понедельник — пятница с 9:00 до 19:00).')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c7":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Данный вопрос можно уточнить по телефону +7 (495) 264-50-07')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "3c8":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('При наличии свободных мест в группах обязательно возьмем.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "4c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Дети, посещающие дошкольные группы школы №338, поступят в первый класс вне зависимости от прописки.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "4c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Необходимо заполнить заявление на портале mos.ru.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "4c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Заявление можно подать в любое время. При планировании обучения в школе с 1 сентября целесообразно подать заявление в начале лета.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "4c4":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Перевестись из одной школы в другую можно на портале mos.ru. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "4c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Можно.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "4c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Для зачисления в школу необходима регистрация на территории города Москвы ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "5c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Обучающиеся кадетских классов в зависимости от профиля подготовки углубленно изучают математику, иностранные языки, историю, информатику, основы безопасности жизнедеятельности, физкультуру. Мы готовим выпускников, которые покажут достойный результат на ЕГЭ, внутренних конкурсах при приеме в ВУЗ. Сам статус без результата преференции не дает.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "5c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Нет, распределение по профильным классам начинается с 7 класса. При соответствующем запросе от родителей для ребенка может быть составлен индивидуальный учебный план. Занятия профильной направленности будут реализованы в рамках внеурочной деятельности.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "5c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Технологический (IT), технологический (инженер), гуманитарный, естественно-научный, социально-экономический. Есть возможность обучаться в классах городских проектов «Кадетский класс в московской школе», «Новый педагогический класс в московской школе», «ИТ-класс в московской школе».')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "5c4":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Конкурсный набор есть только в профильные классы. Профильное обучение реализуется с 10 класса. Направления: естественно-научное, гуманитарное, технологическое, социально-экономическое. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "5c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "5c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Минимальный проходной балл — 8.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "6c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Ввод здания в эксплуатацию запланирован на 2021 год.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "6c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, подвоз обучающихся организован.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "6c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, подвоз обучающихся организован.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	eyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Контактные поверхности обрабатывают дезинфицирующим средством «Альхон». Полы моют дезинфицирующим средством «Дезон-хлор». Оба средства хлорсодержащие.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Сертификаты есть на постах охраны.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Вакцинация ведется.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c4":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Улично-дорожная сеть входит в компетенцию поселения.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Установка системы «Проход и питание» ожидается в 2020-2021 учебном году. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Об эвакуации детей из школы может подробно рассказать специалист по безопасности Александр Михайлович Зубок, тел. 8 (906) 710-57-84.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c7":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Имеющаяся медкомиссия действительна.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c8":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Школа планирует увеличить количество мест, этот вопрос в работе. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c9":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В выходные территория школы открыта с 6:00 до 21:30, в будни — с 19:30 до 21:30.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c10":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Система видеонаблюдения есть на всех образовательных площадках школьного комплекса №338. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c11":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Можно. На территории учебного заведения запрещается: выгуливать животных, использовать пиротехнические средства, разводить костры, в т. ч. с использованием мангалов, заезжать и кататься на авто- и мототехнике, ломать зеленые насаждения, портить газоны, рвать цветы, проносить и использовать колющие и режущие предметы, а также любые виды оружия, курить, употреблять алкогольные напитки, наркотические вещества, а также находиться в нетрезвом состоянии, выбрасывать и складировать мусор не в специально отведенных местах, нарушать санитарно-эпидемиологические правила и нормы.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "7c12":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В школе используются рециркуляторы закрытого типа.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Три дошкольные группы: ОП «Воскресеночка» (Воскресенское, 37А), ОП «Малые Бунинские луга» (ул. Александры Монаховой 98А), ОП «Большие Бунинские луга» (ул. Александры Монаховой, 96А).')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Школа №338 работает по триместровой системе. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В 5 классе в первом полугодии — ежедневно.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c4":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, но только в рамках дополнительного образования. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c5":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Участие в олимпиадах — дело добровольное. Ученик может отказаться от участия в олимпиаде, и никакие санкции к нему применены не будут. Участие в олимпиадах помогает ребёнку глубже погрузиться в предмет, и, как следствие, лучше подготовиться к ГИА и поступлению в вуз.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c6":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В рамках учебной программы выездные образовательные мероприятия предусмотрены. Выезды могут осуществляться как в урочное, так и внеурочное время. В настоящий момент выездные мероприятия ограничены в связи с коронавирусной инфекцией. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c7":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Обучение в начальных классах по УМК «Школа России» с использованием методической системы «УниК» В.И. Жохова ведется.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c8":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Информация о педагогах школы №338 опубликована на сайте, в разделе «Руководство. Педагогический (научно-педагогический) состав».')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c9":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Оперативно просматривать новости школы можно на официальном сайте школы, в соцсетях (Instagram, Facebook, ВКонтакте, Одноклассники) и на Telegram-канале. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c10":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Во всех московских школах реализуется городской проект «Московская электронная школа» (МЭШ). В рамках МЭШ уже размещены учебные пособия, которые ребенок может использовать на уроке. Школа предоставляет учебные пособия на бумажном носителе. Решение о приобретении гаджета для использования учебного пособия в электронном виде принимает родитель.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c11":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Английский язык в учебном плане со второго класса. Дополнительные часы реализуются за счет дополнительного образования.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c12":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Школа №338 открылась в сентябре 2019 года. Пока вне рейтинга.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c13":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Работа с билингвальными детьми осуществляется в рамках внеурочной деятельности и дополнительного образования.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c14":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Территория школы открыта, но во время образовательного процесса допуск на территорию ограничен.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c15":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В школе есть предпрофильный гуманитарный класс, предполагающий углубленное изучение английского языка. Также изучать иностранный язык можно в рамках дополнительного образования. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c16":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Необходимо написать соответствующее заявление и передать классному руководителю. Подробнее может рассказать Елена Андреевна Аржанова, email arzhanovaea@sch338.ru.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c17":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В ОП «Воскресенская школа» — магнитно-маркерные, МЭШ, меловые. В ОП «Школа Бунинские луга» — магнитно-маркерные, МЭШ.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c18":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Для этого необходимо написать заявление в свободной форме с объяснением причины перевода и передать руководителю образовательной площадки. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c19":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Занятия возможны при наличии назначения от комиссии. С условиями обучения детей с ОВЗ можно ознакомиться на сайте школы в разделе «Служба психолого-педагогического сопровождения».')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c20":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В школе есть образовательные возможности для детей с ОВЗ, в том числе курсы по подготовке к школе. Весь перечень объединений дополнительного образования опубликован на сайте школы в разделе «Дополнительное образование» и на портале mos.ru.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c21":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('В школе ведётся системная работа по выявлению и профилактике буллинга специалистами психолого-педагогической службы и классными руководителями. Экспертно-консультативный совет родительской общественности и другие подобные организации проводят для обучающихся, педагогов и родителей соответствующие лекции, семинары. Классные руководители обсуждают данную тему с детьми на классных часах. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c22":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Необходимо обратиться к заместителю директора по качеству образования С.Н. Рихерту rihertsn@sch338.ru. В письме просьба уточнить класс и ФИО обучающегося.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c23":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Внеурочную деятельность ведут согласно расписанию учителя-предметники школы. Расписание есть у всех классных руководителей. Внеурочная деятельность — неотъемлемая часть образовательного процесса, которая способствует реализации ФГОС. Объединяет все виды деятельности школьника и является одной из форм организации свободного времени обучающегося, нацелена на выявление интересов обучающегося с применением различных форм учебной деятельности. Направлена на профнавигацию, развитие мягких навыков: коллаборации, креативного мышления,  коммуникации.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c24":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Для аттестации ребенку необходимо иметь по предмету, который идет 1 час в неделю, — 3 отметки, по предемту, который идет 2 часа в неделю, — 4-5 отметок, по предмету, который идет 3 часа в неделю, — 5-6 отметок.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c25":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, профилактические мероприятия проводятся. Перечень профилактических мероприятий на текущий учебный год опубликован на сайте школы в разделе «Социальная работа». ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c26":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Нет, в первых классах домашнее задание не предусмотрено. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c27":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('С учителем можно связаться через классного руководителя. ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c28":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Согласно плану внеурочной деятельности в начальной школе проводятся спортивно-оздоровительные, общеинтеллектуальные, духовно-нравственные, социальные и общекультурные мероприятия в рамках следующих направлений: гуманитарного (лингвистика), гуманитарного (филология), математического (естественные науки), математического (информационные технологии). Это подвижные игры на свежем воздухе, экскурсии, активные перемены, конкурсы, беседы, тренинги, праздники, классные выставки и другие виды деятельности. С планом внеурочной деятельности можно ознакомиться на сайте в разделе «Образование», подразделе «Учебные планы».')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c29":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Если педагог дал детям самостоятельное задание, это не возбраняется. Наблюдение за дисциплиной продолжается в любом случае. ')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c30":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Второй иностранный язык на выбор — французский, немеций или испанский. Изучение второго иностранного языка начинается с 7 класса.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c31":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Необходимо обратиться к заместителю директора по качеству образования С.Н. Рихерту rihertsn@sch338.ru. В письме просьба уточнить класс и ФИО обучающегося.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "8c32":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('В школе №338 есть требования к внешнему виду обучающихся. Положение об одежде обучающихся с 1 по 11 классы опубликовано на официальном сайте школы в разделе «Образование», подразделе «Школьная форма».')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "9c1":
+
+        keyboard = types.InlineKeyboardMarkup()
+
+        msg = ('Буфет есть, но в период ограничительных мер он не работает.')
+
+        key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+        keyboard.add(key_10Cc)
+
+        bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "9c2":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Да, в школе есть платное питание. Узнать подробнее о поставщике услуг питания, порядке предоставления платного питания и меню можно на нашем сайте в разделе «Проход и питание».')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "9c3":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Порядок оказания услуги платного питания регламентирует договор об организации платного питания. Договор размещен на официальном сайте школы в разделе «Проход и питание». ')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+    if call.data == "10c1":
+
+    	keyboard = types.InlineKeyboardMarkup()
+
+    	msg = ('Предоставить данные для входа в ЭДЖ может классный руководитель.')
+
+    	key_10Cc = types.InlineKeyboardButton(text='Назад', callback_data='back')
+
+    	keyboard.add(key_10Cc)
+
+    	bot.send_message(call.message.chat.id, msg, reply_markup=keyboard)
+
+
+
+
+
+    
+
+
+
+
+
+
+
+# Запускаем постоянный опрос бота в Телеграме
+
+
+
+bot.polling(none_stop=True, interval=0)
+
+
+
+#write by Shampyn
+
